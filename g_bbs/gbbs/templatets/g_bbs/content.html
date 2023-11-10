@@ -1,0 +1,23 @@
+{% for g_topic in g_topics %}
+
+{% if forloop.first %}
+
+<input id="first" type="hidden" value="{{ g_topic.id }}" name="first">
+{% endif %}
+
+
+<div class="border">
+    <div>{{ g_topic.g_dt }}</div>
+    <div>{{ g_topic.g_comment }}</div>
+
+
+    <form action="{% url 'g_bbs:single' g_topic.id %}">
+
+    </form>
+</div>
+
+{% empty %}
+<input id="first" type="hidden" value="" name="first">
+
+
+{% endfor %}

@@ -1,0 +1,98 @@
+{% extends "common/l_sidebar.html" %}
+{% load static %}
+{% block extra_head %}
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="shortcut icon" href="{% static 'TemplateData/favicon.ico' %}">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    {# Ajaxを送信する時、ヘッダにCSRFトークンをセットする。 #}
+    <script src="{% static 'gjs/ajax.js' %}"></script>
+    <script src="{% static 'gjs/script.js' %}"></script>
+    <link rel="stylesheet"href="{% static 'css/logo.css' %}">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+{% endblock %}
+    <title>{% block page_title %}G{% endblock %}</title>
+<!--↓これはヘッダーの右側に何かを表示させたい時に使う。例えばログインのボタンとか-->
+{% block header_right_content %}
+
+
+{% endblock %}
+<!--↓これは左サイドバーの中身に何かを表示させたい時に使う。例えばサイト内のリンクとか-->
+{% block sidebar_content %}
+    <h2>G</h2>
+
+
+
+    <div class="sample3Area" id="makeImg">
+            <input type="checkbox" id="sample3check" checked="">ダークモード
+            <label for="sample3check">
+                <span></span>
+            </label>
+    </div>
+
+
+{% endblock %}
+
+{% load account %}
+
+{% user_display user %}
+
+{% block main %}
+   <main class="container">
+        <form id="form_area" action="" method="POST">
+            {% csrf_token %}
+            <textarea id="textarea" class="form-control" name="g_comment"></textarea>
+            <input id="submit_form" type="button" value="送信">
+        </form>
+        <div id="content_area">{% include "g_bbs/content.html" %}</div>
+
+   </main>
+
+
+
+{% endblock %}
+
+
+
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
